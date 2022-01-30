@@ -1,0 +1,54 @@
+<div class="titulo">
+    <h2>Filtra noticias por pais y categoria</h2>
+
+</div>
+<div class="miformulario ">
+    <form [formGroup]="formulario" class="d-flex justify-content-around">
+
+        <div class="form-group">
+          <select class="form-select" id="exampleSelect1" formControlName="categoria">
+            <option value="" disabled selected hidden>Categoria</option>
+            <option ngValue="sports">sports</option>
+            <option ngValue="technology">Technology</option>
+            <option ngValue="general">General</option>
+            <option ngValue="science">Science>/option>
+            <option ngValue="business">Business</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select formControlName="pais" class="form-select" id="exampleSelect1">
+            <option value="" disabled selected hidden>Pais</option>
+            <option ngValue="fr">Francia</option>
+            <option ngValue="it">Italia</option>
+            <option ngValue="gb">England</option>
+            <option ngValue="ch">Suiza</option>
+            <option ngValue="de">Deutschland</option>
+            <option ngValue="ru">Rusia</option>
+          </select>
+        </div>
+       </form>
+</div>
+
+
+<div *ngIf="espera" class="d-flex justify-content-center mt-2">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+<div class="container mt-2">
+  
+  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+      
+    <div class="col" *ngFor="let item of listado" >
+      <div class="card">
+        <img [src]='item.urlToImage' class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{item.title}}</h5>
+          <p class="card-text">{{item.description}}</p>
+          <a href="{{item.url}}" class="btn btn-primary">go to origin</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

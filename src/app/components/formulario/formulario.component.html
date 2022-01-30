@@ -1,0 +1,29 @@
+
+<div class="jumbotron d-flex  flex-column justify-content-center mt-3">
+    <h2>Filtra notocias por pais y categoria</h2>
+    <div class="row d-flex flex-column">
+       <form [formGroup]="formulario">
+
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Categoria</label>
+          <select class="form-select" id="exampleSelect1" formControlName="categoria">
+            <option ngValue="caca">caja</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Pais</label>
+          <select formControlName="pais" class="form-select" id="exampleSelect1">
+            <option ngValue="fr">Francia</option>
+            <option ngValue="it">Italia</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+       </form>
+    </div>
+</div>
