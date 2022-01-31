@@ -3,29 +3,32 @@
 
 </div>
 <div class="miformulario ">
-    <form [formGroup]="formulario" class="d-flex justify-content-around">
+    <form [formGroup]="formulario" (ngSubmit)="buscar()"  class="d-flex justify-content-around">
 
         <div class="form-group">
-          <select class="form-select" id="exampleSelect1" formControlName="categoria">
+          <select  class="form-select" id="exampleSelect1" formControlName="categoria">
             <option value="" disabled selected hidden>Categoria</option>
             <option ngValue="sports">sports</option>
             <option ngValue="technology">Technology</option>
             <option ngValue="general">General</option>
-            <option ngValue="science">Science>/option>
+            <option ngValue="science">Science</option>
             <option ngValue="business">Business</option>
           </select>
         </div>
         <div class="form-group">
-          <select formControlName="pais" class="form-select" id="exampleSelect1">
+          <select   formControlName="pais" class="form-select" id="exampleSelect1">
             <option value="" disabled selected hidden>Pais</option>
             <option ngValue="fr">Francia</option>
             <option ngValue="it">Italia</option>
             <option ngValue="gb">England</option>
             <option ngValue="ch">Suiza</option>
+            <option ngValue="us">USA</option>
             <option ngValue="de">Deutschland</option>
             <option ngValue="ru">Rusia</option>
           </select>
         </div>
+        <button class="btn btn-secondary my-2 my-sm-0"     >Search</button>
+
        </form>
 </div>
 

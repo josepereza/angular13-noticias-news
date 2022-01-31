@@ -20,15 +20,26 @@ export class ListadoNoticiasComponent implements OnInit {
   constructor(public ns: NoticiasService) { }
 
   ngOnInit(): void {
-    
+     
+     this.formulario.get('pais')?.setValue('us')
+     this.formulario.get('categoria')?.setValue('general')
+
+    this.ns.getPaisesPorPais('us','general')
+    .subscribe(data => {
+      this.listado = data
+      this.espera = false
+
+    })
+
     this.ns.busqueda$
       .subscribe((data: any) => {
         this.espera = true
         this.ns.getTodo(data).subscribe(datos => {
           this.listado = datos
           this.espera = false
-        })
+       })
       })
+      
 
     this.formulario.get('categoria')?.valueChanges.subscribe(
       data => {
@@ -57,5 +68,9 @@ export class ListadoNoticiasComponent implements OnInit {
           })
       })
   }
-
+buscar(){
+  this.formulario.get('pais')?.setValue('')
+  this.formulario.get('categoria')?.setValue('')
+  
+}
 }

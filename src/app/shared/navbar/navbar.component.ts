@@ -10,14 +10,14 @@ import { NoticiasService } from 'src/app/services/noticias.service';
 })
 export class NavbarComponent implements OnInit {
 @Input() titulo:string
-inputSearch = new FormControl('general');
+inputSearch = new FormControl('entertainment');
   constructor(private ns:NoticiasService) { 
     this.titulo='news';
   }
 
   ngOnInit(): void {
     this.onChange();
-    this.inputSearch.setValue('entertainment')
+    //this.inputSearch.setValue('entertainment')
   }
   onChange(): void {
     this.inputSearch.valueChanges
