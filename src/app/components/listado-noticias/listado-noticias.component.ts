@@ -68,9 +68,23 @@ export class ListadoNoticiasComponent implements OnInit {
           })
       })
   }
-buscar(){
+resetear(){
   this.formulario.get('pais')?.setValue('')
   this.formulario.get('categoria')?.setValue('')
   
+}
+buscar(pais:string,categoria:string){
+  console.log(pais,categoria)
+  const np=pais.length;
+  const nc=categoria.length;
+  pais=pais.slice(3,np)
+  categoria=categoria.slice(3,nc)
+  console.log(pais,categoria)
+  this.ns.getPaisesPorPais(pais,categoria)
+  .subscribe(data => {
+    this.listado = data
+    this.espera = false
+
+  })
 }
 }

@@ -3,10 +3,10 @@
 
 </div>
 <div class="miformulario ">
-    <form [formGroup]="formulario" (ngSubmit)="buscar()"  class="d-flex justify-content-around">
+    <form [formGroup]="formulario" (ngSubmit)="resetear()"  class="d-flex justify-content-around">
 
         <div class="form-group">
-          <select  class="form-select" id="exampleSelect1" formControlName="categoria">
+          <select #categoria  class="form-select" id="exampleSelect1" formControlName="categoria">
             <option value="" disabled selected hidden>Categoria</option>
             <option ngValue="sports">sports</option>
             <option ngValue="technology">Technology</option>
@@ -16,7 +16,7 @@
           </select>
         </div>
         <div class="form-group">
-          <select   formControlName="pais" class="form-select" id="exampleSelect1">
+          <select #pais  formControlName="pais" class="form-select" id="exampleSelect1">
             <option value="" disabled selected hidden>Pais</option>
             <option ngValue="fr">Francia</option>
             <option ngValue="it">Italia</option>
@@ -27,8 +27,8 @@
             <option ngValue="ru">Rusia</option>
           </select>
         </div>
-        <button class="btn btn-secondary my-2 my-sm-0"     >Search</button>
-
+        <button type="submit" class="btn btn-secondary my-2 my-sm-0"     >Reset</button>
+        <button class="btn btn-secondary my-2 my-sm-0"  (click)="buscar(pais.value,categoria.value)"   >Search2</button>
        </form>
 </div>
 
